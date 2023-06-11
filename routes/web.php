@@ -19,4 +19,3 @@ Route::middleware('auth')->group(function () {
 
 \Laragear\WebAuthn\WebAuthn::routes();
 
-require __DIR__.'/auth.php';
