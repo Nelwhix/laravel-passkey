@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form id="register-form" method="POST">
         @csrf
 
         <!-- Name -->
@@ -45,4 +45,17 @@
             </x-primary-button>
         </div>
     </form>
+
+    <script>
+        const register = event => {
+            event.preventDefault()
+            console.log("fired")
+
+            new WebAuthn().register()
+                .then(response => alert('Registration successful!'))
+                .catch(error => alert('Something went wrong, try again!'))
+        }
+
+        document.getElementById('register-form').addEventListener('submit', register)
+    </script>
 </x-guest-layout>
